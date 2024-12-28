@@ -1,0 +1,8 @@
+FT	PID	QT	WT
+4001	1	1	2000
+patients: 1	[NP:1 ,SP:0 ,EP:0]
+Hospitals = 4
+cars: 40	[SCar: 11, NCar: 29]
+Avg wait time = 2000
+Avg busy time = 100
+Avg utilization = 2.49938%
