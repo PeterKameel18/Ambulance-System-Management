@@ -65,25 +65,6 @@ The system is designed with the following components:
      - Transporting patients.  
      - Completing requests or handling cancellations.  
 
-## How to Run
-
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/yourusername/ambulance-management-system.git
-   cd ambulance-management-system
-   ```  
-
-2. Compile the code:  
-   ```bash
-   g++ -o ambulance_management main.cpp hospital.cpp patient.cpp car.cpp -std=c++11
-   ```  
-
-3. Run the program:  
-   ```bash
-   ./ambulance_management
-   ```  
-
-4. Follow the on-screen prompts to simulate ambulance operations.  
 
 ## Sample Input/Output  
 
@@ -103,18 +84,4 @@ The system is designed with the following components:
 - **Machine Learning Integration**  
    Use predictive algorithms to optimize ambulance allocation further.  
 
-## Contribution
 
-Contributions are welcome! If you'd like to improve the system or add new features, feel free to:  
-
-1. Fork the repository.  
-2. Create a new branch for your feature.  
-3. Submit a pull request with detailed documentation of your changes.  
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).  
-
----
-
-This README provides a comprehensive description of your project, making it easier for others to understand and contribute. Let me know if you need adjustments!
