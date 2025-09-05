@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚑 Ambulance Management System - Portfolio Demo</title>
+    <link rel="stylesheet" href="../web/styles.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        .demo-notice {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .demo-screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .screenshot {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .screenshot:hover {
+            transform: translateY(-5px);
+        }
+        .feature-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        .cta-buttons {
+            margin: 2rem 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🚑 Ambulance Management System</h1>
+        <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+            A comprehensive full-stack simulation system for emergency medical services operations
+        </p>
+
+        <div class="demo-notice">
+            <h2>📱 Static Demo Version</h2>
+            <p>This is a static showcase of the Ambulance Management System. For the full interactive experience with real-time simulation, please visit the live deployment.</p>
+            <div class="cta-buttons">
+                <a href="https://ambulance-management-system.herokuapp.com" class="btn" target="_blank">
+                    🌐 Live Demo (Full Functionality)
+                </a>
+                <a href="https://github.com/PeterKameel18/Ambulance-System-Management" class="btn" target="_blank">
+                    📁 View Source Code
+                </a>
+            </div>
+        </div>
+
+        <div class="demo-screenshots">
+            <div class="screenshot">
+                <h3>🎯 File Upload System</h3>
+                <p>Intuitive drag-and-drop interface for uploading simulation input files with real-time validation and progress indicators.</p>
+                <div style="background: #f0f0f0; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <div style="border: 2px dashed #ccc; padding: 2rem; text-align: center; color: #666;">
+                        📁 Drag & Drop File Here
+                    </div>
+                </div>
+            </div>
+
+            <div class="screenshot">
+                <h3>📊 Real-Time Dashboard</h3>
+                <p>Live monitoring of hospital status, ambulance fleet, patient queues, and performance metrics with interactive charts.</p>
+                <div style="background: #f0f0f0; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: #e8f5e8; padding: 1rem; border-radius: 5px;">Hospital 1: 85% Capacity</div>
+                        <div style="background: #fff3cd; padding: 1rem; border-radius: 5px;">Hospital 2: 60% Capacity</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screenshot">
+                <h3>🚑 Ambulance Fleet Tracking</h3>
+                <p>Real-time location updates, status monitoring, and assignment optimization for the ambulance fleet.</p>
+                <div style="background: #f0f0f0; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <div style="display: flex; justify-content: space-around;">
+                        <div style="text-align: center;">
+                            <div style="background: #28a745; color: white; padding: 0.5rem; border-radius: 50%; width: 40px; height: 40px; margin: 0 auto;">🚑</div>
+                            <small>Available</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #ffc107; color: white; padding: 0.5rem; border-radius: 50%; width: 40px; height: 40px; margin: 0 auto;">🚑</div>
+                            <small>En Route</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #dc3545; color: white; padding: 0.5rem; border-radius: 50%; width: 40px; height: 40px; margin: 0 auto;">🚑</div>
+                            <small>Busy</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screenshot">
+                <h3>📈 Performance Analytics</h3>
+                <p>Comprehensive metrics including response times, utilization rates, and completion statistics with interactive charts.</p>
+                <div style="background: #f0f0f0; padding: 2rem; border-radius: 10px; margin: 1rem 0;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: #28a745;">94%</div>
+                            <small>Utilization Rate</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: #007bff;">2.3min</div>
+                            <small>Avg Response Time</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-list">
+            <h2>🛠️ Technical Features</h2>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div>
+                    <h4>Real-Time Processing</h4>
+                    <p>Dynamic timestep progression with live updates and configurable simulation speed</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <div>
+                    <h4>Modern UI/UX</h4>
+                    <p>Professional, responsive design with glassmorphism effects and smooth animations</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <div>
+                    <h4>Mobile Responsive</h4>
+                    <p>Touch-optimized interface that works perfectly on all devices and screen sizes</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔧</div>
+                <div>
+                    <h4>Full-Stack Development</h4>
+                    <p>C++ simulation engine, Python Flask API, and modern JavaScript frontend</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div>
+                    <h4>Data Visualization</h4>
+                    <p>Interactive charts and real-time metrics using Chart.js and modern web technologies</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <div>
+                    <h4>Security & Validation</h4>
+                    <p>Comprehensive input validation, file type checking, and secure error handling</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+            <h2>🚀 Ready to Deploy?</h2>
+            <p>This project demonstrates advanced full-stack development skills and is ready for portfolio showcase!</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/PeterKameel18/Ambulance-System-Management" class="btn" target="_blank">
+                    ⭐ Star on GitHub
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="btn" target="_blank">
+                    💼 Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
