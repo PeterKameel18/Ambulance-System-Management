@@ -1,10 +1,18 @@
 #include <iostream>
 #include "Organizer.h"
+#ifdef _WIN32
 #include <Windows.h>
+#else
+#include <cstdlib>
+#endif
 
 void clear()
 {
-    system("CLS"); //clears the console 
+#ifdef _WIN32
+    system("CLS"); //clears the console on Windows
+#else
+    system("clear"); //clears the console on macOS/Linux
+#endif
 }
 
 int ReadMode()  // reads the required mode 1-> interactive 2-> silent 
@@ -26,7 +34,7 @@ int ReadMode()  // reads the required mode 1-> interactive 2-> silent
 int main() {
     Organizer organizer;
 
-    string filename = "input.txt"; 
+    string filename = "input2.txt"; 
     organizer.fileLoading(filename);
     
     int currentTimestep = 1;

@@ -1,0 +1,26 @@
+{
+  "name": "ambulance-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack ambulance management simulation system",
+  "main": "web/index.html",
+  "scripts": {
+    "start": "cd backend && python3 server.py",
+    "dev": "cd backend && python3 server.py",
+    "build": "echo 'No build step required for static frontend'",
+    "heroku-postbuild": "echo 'Post-build complete'"
+  },
+  "keywords": [
+    "ambulance",
+    "simulation",
+    "management",
+    "fullstack",
+    "c++",
+    "python",
+    "javascript"
+  ],
+  "author": "Peter",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

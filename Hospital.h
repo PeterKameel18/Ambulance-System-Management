@@ -372,6 +372,7 @@ public:
         if (P->getType() == "EP") {
             return P->getDistance();
         }
+        return -1; // Return -1 if patient is not EP type
     }
     void processRequests(int currentTimestep, CancelPriQueue<Car*>& outCars, priQueue<Car*>& backCars) {
         Patient* patient = nullptr;

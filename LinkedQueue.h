@@ -160,7 +160,10 @@ template <typename T>
 bool LinkedQueue<T>::enqueuefront(const T& newEntry)
 {
 	Node<T>* newNodePtr = new Node<T>(newEntry);
-	if (isEmpty()) { frontPtr = backPtr = newNodePtr; }
+	if (isEmpty()) { 
+		frontPtr = backPtr = newNodePtr; 
+		return true;
+	}
 	else {
 		newNodePtr->setNext(frontPtr);
 		frontPtr = newNodePtr;

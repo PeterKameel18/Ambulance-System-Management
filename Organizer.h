@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <climits>
 #include "Hospital.h"
 #include "Car.h"
 #include "Patient.h"
@@ -259,7 +260,7 @@ public:
        
         while (!finishedQueue.isEmpty())
         {
-            int min = 9999999999;
+            int min = INT_MAX;
             Patient* least_patient = NULL;
             Patient* current_patient = NULL;
             for (int i = 0; i < finishedQueue.getCount(); i++)
@@ -326,7 +327,7 @@ public:
         // percentage of EP //
         OutputFile << "Avg busy time = ";
         OutputFile << TotalBusyCars / totalCars << endl;
-        OutputFile << "Avg utilization = " << (float(TotalBusyCars / totalCars)/ currentTime) * 100;
+        OutputFile << "Avg utilization = " << (float(TotalBusyCars) / (totalCars * currentTime)) * 100;
         OutputFile << "%" << endl;
         OutputFile.close();
         

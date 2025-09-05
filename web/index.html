@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance Management System - Professional Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-ambulance"></i>
+                    <span>EMS Management System</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="status-indicator">
+                    <div class="status-dot" id="statusDot"></div>
+                    <span id="statusText">Ready</span>
+                </div>
+                <div class="timestep">
+                    <span>Timestep: </span>
+                    <span id="timestep">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Step 1: File Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-card">
+                    <div class="upload-header">
+                        <h2><i class="fas fa-upload"></i> Step 1: Upload Input File</h2>
+                        <p>Please upload an input file to start the simulation, or use the demo file</p>
+                    </div>
+                    <div class="upload-content">
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="upload-text">
+                                <h3>Choose Input File</h3>
+                                <p>Upload a .txt file with simulation parameters</p>
+                                <input type="file" id="fileInput" accept=".txt" hidden>
+                                <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                                    <i class="fas fa-folder-open"></i> Browse Files
+                                </button>
+                            </div>
+                        </div>
+                        <div class="file-info" id="fileInfo" style="display: none;">
+                            <i class="fas fa-file-alt"></i>
+                            <span id="fileName">No file selected</span>
+                            <button class="btn btn-danger btn-sm" onclick="removeFile()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="upload-actions">
+                            <button class="btn btn-success" id="uploadBtn" onclick="uploadFile()" disabled>
+                                <i class="fas fa-upload"></i> Upload & Continue
+                            </button>
+                            <button class="btn btn-outline" onclick="useDemoFile()">
+                                <i class="fas fa-play-circle"></i> Use Demo File
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Simulation Controls -->
+            <section class="simulation-section" id="simulationSection" style="display: none;">
+                <div class="simulation-card">
+                    <div class="simulation-header">
+                        <h2><i class="fas fa-cogs"></i> Step 2: Simulation Controls</h2>
+                        <div class="current-file">
+                            <i class="fas fa-file-alt"></i>
+                            <span id="currentFile">No file loaded</span>
+                        </div>
+                    </div>
+                    <div class="simulation-controls">
+                        <div class="control-group">
+                            <button id="startBtn" class="btn btn-success btn-large">
+                                <i class="fas fa-play"></i> Start Simulation
+                            </button>
+                            <button id="pauseBtn" class="btn btn-warning btn-large" disabled>
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button id="resetBtn" class="btn btn-danger btn-large">
+                                <i class="fas fa-stop"></i> Reset
+                            </button>
+                        </div>
+                        <div class="speed-control">
+                            <label for="speedSlider">Simulation Speed:</label>
+                            <input type="range" id="speedSlider" min="1" max="10" value="5">
+                            <span id="speedValue">5x</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Real-time Dashboard -->
+            <section class="dashboard-section" id="dashboardSection" style="display: none;">
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Step 3: Real-time Dashboard</h2>
+                    <div class="dashboard-actions">
+                        <button class="btn btn-outline" onclick="showActivityLog()">
+                            <i class="fas fa-list"></i> Activity Log
+                        </button>
+                        <button class="btn btn-outline" onclick="changeFile()">
+                            <i class="fas fa-exchange-alt"></i> Change File
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="totalAmbulances">0</h3>
+                            <p>Total Ambulances</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="totalPatients">0</h3>
+                            <p>Active Patients</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="avgWaitTime">0</h3>
+                            <p>Avg Wait Time (min)</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3 id="utilization">0%</h3>
+                            <p>Fleet Utilization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Map -->
+                <div class="map-container">
+                    <h3><i class="fas fa-map-marker-alt"></i> Live Fleet Tracking</h3>
+                    <div class="map-grid" id="mapGrid">
+                        <!-- Ambulance markers will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Data Tables -->
+                <div class="tables-container">
+                    <div class="table-section">
+                        <h3><i class="fas fa-hospital"></i> Hospital Status</h3>
+                        <div class="hospitals-grid" id="hospitalsGrid">
+                            <!-- Hospital cards will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <div class="table-section">
+                        <h3><i class="fas fa-ambulance"></i> Fleet Management</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Location</th>
+                                        <th>Assigned To</th>
+                                        <th>Last Update</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ambulancesTableBody">
+                                    <!-- Ambulance rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="table-section">
+                        <h3><i class="fas fa-user-injured"></i> Patient Queue</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Type</th>
+                                        <th>Priority</th>
+                                        <th>Distance</th>
+                                        <th>Hospital</th>
+                                        <th>Wait Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="patientsTableBody">
+                                    <!-- Patient rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Activity Log Modal -->
+        <div id="activityModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-list"></i> Activity Log</h2>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="activityLog" class="activity-log">
+                        <!-- Activity entries will be dynamically generated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
